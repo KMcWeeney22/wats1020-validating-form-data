@@ -10,7 +10,8 @@ $(document).on('ready', function(){
         rules: {
             "your-name": {
                 required: true,
-                maxlength: 128
+                maxlength: 128,
+                number: false
             },
             "your-state": {
                 required: true,

@@ -44,7 +44,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-name"><span class="glyphicon glyphicon-question-sign" title="Your first and last name."></span> Your Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="your-name" id="your-name" placeholder="Your Name">
+              <input type="text" class="form-control lettersonly" name="your-name" id="your-name" placeholder="Your Name" required>
             </div>
             <!-- TODO: Make validation for name according to these rules:
                  * Name must be fewer than 128 characters.
@@ -54,7 +54,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-address">Street Address</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="your-address" id="your-address" placeholder="Your Street Address">
+              <input type="text" class="form-control" name="your-address" id="your-address" placeholder="Your Street Address" required>
             </div>
             <!-- TODO: Make validation for street address according to these rules:
                   * Field must not be blank
@@ -69,7 +69,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-city">City</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="your-city" id="your-city" placeholder="Your City">
+              <input type="text" class="form-control" name="your-city" id="your-city" placeholder="Your City" required>
             </div>
             <!-- TODO: Make validation for city according to these rules:
                   * Field must not be blank
@@ -78,7 +78,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-state"><span class="glyphicon glyphicon-question-sign" title="Two-letter state abbreviation."></span> State</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="your-state" id="your-state" placeholder="Your State">
+              <input type="text" class="form-control checkState" name="your-state" id="your-state" placeholder="Your State" required>
             </div>
             <!-- TODO: Make validation for state according to these rules:
                   * Field must not be blank
@@ -89,7 +89,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-zip"><span class="glyphicon glyphicon-question-sign" title="US ZIP code only."></span> ZIP</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="your-zip" id="your-zip" placeholder="Your ZIP Code">
+              <input type="text" class="form-control validZipUS" name="your-zip" id="your-zip" placeholder="Your ZIP Code" required><!-- validZipUS aded to class for validating US Zip codes in main.js file -->
             </div>
             <!-- TODO: Make validation for ZIP according to these rules:
                   * Field must not be blank
@@ -103,7 +103,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="card-holder-name"><span class="glyphicon glyphicon-question-sign" title="First and last name shown on card."></span> Name on Card</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
+              <input type="text" class="form-control lettersonly" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" required>
             </div>
             <!-- TODO: Make validation for name on card according to these rules:
                   * Field must not be blank
@@ -113,7 +113,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="card-number"><span class="glyphicon glyphicon-question-sign" title="Test card number: 0000 0000 0000 0000"></span> Card Number</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+              <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" required>
             </div>
             <!-- TODO: Make validation for card number according to these rules:
                   * Field must not be blank
@@ -129,7 +129,7 @@
             <div class="col-sm-9">
               <div class="row">
                 <div class="col-xs-3">
-                  <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                  <select class="form-control col-sm-2" name="expiry-month" id="expiry-month" required>
                     <option>Month</option>
                     <option value="01">Jan (01)</option>
                     <option value="02">Feb (02)</option>
@@ -146,7 +146,8 @@
                   </select>
                 </div>
                 <div class="col-xs-3">
-                  <select class="form-control" name="expiry-year">
+                  <select class="form-control" name="expiry-year" id="expiry-year" required>
+                    <option>Year</option>
                     <option value="15">2015</option>
                     <option value="16">2016</option>
                     <option value="17">2017</option>
@@ -167,7 +168,7 @@
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="cvv"><span class="glyphicon glyphicon-question-sign" title="Three-digit code from back of card."></span> Card CVV</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
+              <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code" required>
             </div>
             <!-- TODO: Make validation for CVV according to these rules:
                   * Field must not be blank
@@ -183,7 +184,7 @@
             <div class="col-sm-9">
               <div class="row">
                 <div class="col-xs-3">
-                  <select class="form-control col-sm-2" name="shipping-method" id="shipping-method">
+                  <select class="form-control col-sm-2" name="shipping-method" id="shipping-method" required>
                     <option>Select One</option>
                     <option value="Ground">Ground</option>
                     <option value="Air">Air</option>
@@ -228,7 +229,7 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/vendor/jquery.validate.min.js"></script>
-
+        <script src ="js/vendor/additional-methods.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
