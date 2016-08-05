@@ -7,9 +7,9 @@
 
 // Refer to the `index.html` file for the validation rules that must be enforced.
 $(document).on('ready', function(){
-		
-	// validation function created to check to see if data entered is a valid state option
-		jQuery.validator.addMethod("checkState", function(value) {
+	
+	// validation function created to check to see if state data entered is a valid state option
+    jQuery.validator.addMethod("checkState", function(value) {
     var states = [
         "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
         "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -18,18 +18,21 @@ $(document).on('ready', function(){
         "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
         "AS", "DC", "FM", "GU", "MH", "MP", "PR", "PW", "VI"
     ];
-    return $.inArray(value.toUpperCase(), states) != -1;
-}, "Please enter a valid state");
+	      // convert text to uppercase 
+	      return $.inArray(value.toUpperCase(), states) != -1;
+	      //error message when not entered in correctly
+	  }, "Please enter a valid state abbreviation. Max Length 2 letters");
+	   
+	    // function created check against whether a valid US zip code is entered in the form
+	      jQuery.validator.addMethod("validZipUS", function(value, element) {
+	      return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(value);
+	      //error message when not entered in correctly
+	  }, "Please input a valid US zip code. Max length 5 digits");
 	
-	// function created check against whether a valid US zip code is entered in the form
-	jQuery.validator.addMethod("validZipUS", function(value, element) {
-    return /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(value);
-}, "Please input a valid US zip code.");
-	
-	
-	jQuery.validator.addMethod("lettersonly", function(value, element) {
-  return this.optional(element) || /^[a-z," "]+$/i.test(value);
-}, "Letters only please"); 
+	    //function created to make sure only letters are entered and not numbers. Used for your-name and card-holder-name
+	    jQuery.validator.addMethod("lettersonly", function(value, element) {
+	    return this.optional(element) || /^[a-z," "]+$/i.test(value);
+	  }, "Your name may only contain letters"); 
 	
     // Form validation
     $('#order-form').validate({
@@ -52,6 +55,7 @@ $(document).on('ready', function(){
             "your-zip": {
                 validZipUS: true,
                 required: true,
+	              minlength: 5,
                 maxlength: 5,
                 digits: true
             },
@@ -64,6 +68,7 @@ $(document).on('ready', function(){
                 required: true,
                 creditcard: true,
             },
+	          // must enter a value= "" on value month and year to make it become required. Shown in index.html file
             "expiry-month": {
                 required: true
             },
@@ -74,8 +79,15 @@ $(document).on('ready', function(){
                 required: true,
                 maxlength: 3,
                 digits: true
-            }
-        }
+            },
+	          "shipping-method": {
+	              required: true
+	          },
+	          "comments": {
+	              maxlength: 500
+	          }
+        },
+
     });
     // Tooltips
     $('label span.glyphicon').tooltip();

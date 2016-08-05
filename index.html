@@ -38,7 +38,7 @@
     <div class="container">
       <p class="lead">Please note: This form is only for validation demonstration purposes. Do not enter real payment information; please use imaginary data.</p>
       <form class="form-horizontal" role="form" action="thank-you.html" method="get" id="order-form">
-      <!-- TODO: Add a general validation check so that any field contained in a `div.form-group. required` will be required to have information when the user submits the form. -->
+      <!-- Add a general validation check so that any field contained in a `div.form-group. required` will be required to have information when the user submits the form. -->
         <fieldset>
           <legend>Your Information</legend>
           <div class="form-group required">
@@ -46,19 +46,14 @@
             <div class="col-sm-9">
               <input type="text" class="form-control lettersonly" name="your-name" id="your-name" placeholder="Your Name" required>
             </div>
-            <!-- TODO: Make validation for name according to these rules:
-                 * Name must be fewer than 128 characters.
-                 * Name may not contain any numbers.
-                 -->
+           
           </div>
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-address">Street Address</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="your-address" id="your-address" placeholder="Your Street Address" required>
             </div>
-            <!-- TODO: Make validation for street address according to these rules:
-                  * Field must not be blank
-                  -->
+            
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="your-address2">Street Address (additional)</label>
@@ -71,31 +66,21 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" name="your-city" id="your-city" placeholder="Your City" required>
             </div>
-            <!-- TODO: Make validation for city according to these rules:
-                  * Field must not be blank
-                  -->
+         
           </div>
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-state"><span class="glyphicon glyphicon-question-sign" title="Two-letter state abbreviation."></span> State</label>
             <div class="col-sm-9">
               <input type="text" class="form-control checkState" name="your-state" id="your-state" placeholder="Your State" required>
             </div>
-            <!-- TODO: Make validation for state according to these rules:
-                  * Field must not be blank
-                  * Field must contain exactly two letters
-                  * (Stretch Goal: If possible, verify that the 2-letter combo matches with known state abbreviations.)
-                  -->
+            
           </div>
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="your-zip"><span class="glyphicon glyphicon-question-sign" title="US ZIP code only."></span> ZIP</label>
             <div class="col-sm-9">
               <input type="text" class="form-control validZipUS" name="your-zip" id="your-zip" placeholder="Your ZIP Code" required><!-- validZipUS aded to class for validating US Zip codes in main.js file -->
             </div>
-            <!-- TODO: Make validation for ZIP according to these rules:
-                  * Field must not be blank
-                  * Field must be an integer (only whole numbers)
-                  * Field must have 5 digits
-                  -->
+            
           </div>
         </fieldset>
         <fieldset>
@@ -105,22 +90,14 @@
             <div class="col-sm-9">
               <input type="text" class="form-control lettersonly" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" required>
             </div>
-            <!-- TODO: Make validation for name on card according to these rules:
-                  * Field must not be blank
-                  * Field must conform to same name requirements as above.
-                  -->
+          
           </div>
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="card-number"><span class="glyphicon glyphicon-question-sign" title="Test card number: 0000 0000 0000 0000"></span> Card Number</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" required>
             </div>
-            <!-- TODO: Make validation for card number according to these rules:
-                  * Field must not be blank
-                  * Field must contain only numbers and spaces (no other characters)
-                  * Field must contain 16 digits
-
-                  WHEN TESTING THIS, USE THE UNIVERSAL TEST CARD NUMBER:
+            <!--  WHEN TESTING THIS, USE THE UNIVERSAL TEST CARD NUMBER:
                   0000 0000 0000 0000
                   -->
           </div>
@@ -130,7 +107,7 @@
               <div class="row">
                 <div class="col-xs-3">
                   <select class="form-control col-sm-2" name="expiry-month" id="expiry-month" required>
-                    <option>Month</option>
+                    <option value="">Month</option>
                     <option value="01">Jan (01)</option>
                     <option value="02">Feb (02)</option>
                     <option value="03">Mar (03)</option>
@@ -147,7 +124,7 @@
                 </div>
                 <div class="col-xs-3">
                   <select class="form-control" name="expiry-year" id="expiry-year" required>
-                    <option>Year</option>
+                    <option value="">Year</option>
                     <option value="15">2015</option>
                     <option value="16">2016</option>
                     <option value="17">2017</option>
@@ -161,20 +138,14 @@
                 </div>
               </div>
             </div>
-            <!-- TODO: Make validation for Expiration Date according to these rules:
-                  * Fields must not be blank
-                  -->
+        
           </div>
           <div class="form-group required">
             <label class="col-sm-3 control-label" for="cvv"><span class="glyphicon glyphicon-question-sign" title="Three-digit code from back of card."></span> Card CVV</label>
             <div class="col-sm-3">
               <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code" required>
             </div>
-            <!-- TODO: Make validation for CVV according to these rules:
-                  * Field must not be blank
-                  * Field must only contain numbers
-                  * Field must have 3 digits
-                  -->
+         
           </div>
         </fieldset>
         <fieldset>
@@ -185,7 +156,7 @@
               <div class="row">
                 <div class="col-xs-3">
                   <select class="form-control col-sm-2" name="shipping-method" id="shipping-method" required>
-                    <option>Select One</option>
+                    <option value="">Select One</option>
                     <option value="Ground">Ground</option>
                     <option value="Air">Air</option>
                     <option value="Sea">Sea</option>
@@ -195,20 +166,14 @@
                 </div>
               </div>
             </div>
-            <!-- TODO: Make validation for shipping method according to these rules:
-                  * Field must not be blank
-                  -->
+          
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="comments">Special Instructions</label>
             <div class="col-sm-9">
               <textarea cols="80" rows="8" class="form-control" name="comments" id="comments" placeholder="Comments"></textarea>
             </div>
-            <!-- TODO: Make validation for street address according to these rules:
-                  * Field may be blank
-                  * If field is not blank, it must be less than 500 characters.
-                  * Field may contain any characters
-                  -->
+           
           </div>
           <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
